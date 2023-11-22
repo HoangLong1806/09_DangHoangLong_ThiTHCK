@@ -15,16 +15,6 @@ const reducer = (state = init, action) => {
                     },
                 ],
             };
-            // case 'icre':
-            //     return {
-            //         todos: [
-            //             ...state.todos,
-            //             {
-            //                 id: state.todos.length - 2,
-            //                 txtJob: action.content,
-            //             },
-            //         ],
-            //     };
         case 'delete':
             return {
                 // todos: state.todos.splice(action.id,1),

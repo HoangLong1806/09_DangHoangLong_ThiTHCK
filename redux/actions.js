@@ -1,4 +1,3 @@
-export const addJob = (txtJob) =>({type:'add',content:txtJob});
-export const icreJob = (txtJob) =>({type:'incre',content:txtJob});
-export const deleteJob = (id) =>({type:'delete',content:id});
-export const editJob = (id,txtJob) =>({type:'edit',content:{id,txtJob}});
+export const addJ = (txtJob) =>({type:'add',content:txtJob});
+export const deleteJ = (id) =>({type:'delete',content:id});
+export const editJ = (id,txtJob) =>({type:'edit',content:{id,txtJob}});

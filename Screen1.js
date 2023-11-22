@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { connect } from 'react-redux';
-import { addJob, deleteJob, editJob, icreJob } from './redux/actions';
+import { addJ, deleteJ, editJ } from './redux/actions';
 
-const Screen1 = ({ todos, addJob, deleteJob, editJob }) => {
+const Screen1 = ({ todos, addJ, deleteJ, editJ }) => {
     const [data, setData] = useState([]);
     const [txtJob, setJob] = useState('');
     useEffect(() => {
@@ -19,32 +19,22 @@ const Screen1 = ({ todos, addJob, deleteJob, editJob }) => {
     }
     console.log("data" + data);
 
-    const fnAddJob = () => {
-        addJob(txtJob);
-        setJob('');
-    };
-    const fnIncreJob = () => {
-        icreJob(txtJob);
-        setJob('');
+    const fnAddJ = () => {
+        addJ(txtJob);
+        setJ('');
     };
 
-
-    console.log("todos" + todos);
+    
     return (
         <View style={styles.container}>
             
 
             <TextInput style={{ width: 200, height: 50 }} onChangeText={setJob} />
             <Pressable
-                onPress={fnAddJob}
-                style={{ backgroundColor: 'White', width: 150, height: 50, justifyContent: 'center', alignItems: 'center' }}>
+                onPress={fnAddJ}
+                style={{ backgroundColor: 'red', width: 150, height: 50, justifyContent: 'center', alignItems: 'center' }}>
                 <Text>Cong</Text>
             </Pressable>
-            {/* <Pressable
-                onPress={fnIncreJob}
-                style={{ backgroundColor: 'blue', width: 150, height: 50, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Tru</Text>
-            </Pressable> */}
             <View>
                 <FlatList
                     data={data.job}
@@ -63,7 +53,7 @@ const Screen1 = ({ todos, addJob, deleteJob, editJob }) => {
                         <Pressable
                             style={{backgroundColor:'red'}}
                             onPress={() => {
-                                deleteJob(item.id)
+                                deleteJ(item.id)
                             }} >
                             <Text>Xoa</Text>
                         </Pressable>
@@ -92,9 +82,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    addJob,
-    deleteJob,
-    editJob,
+    addJ,
+    deleteJ,
+    editJ,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Screen1);
